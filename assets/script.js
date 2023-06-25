@@ -27,6 +27,7 @@ var mainButton = document.querySelector(".btn-main");
 
 // Adding event listener to button
 mainButton.addEventListener("click", startCountdown);
+// mainButton.addEventListener("click", createQuestions(Q1));
 
 function startCountdown() {
   mainButton.disabled = true;
@@ -41,6 +42,13 @@ function startCountdown() {
     }
   }, 1000);
 }
+
+// function createQuestions(questionObject) {
+//   var li1 = document.("#main").createElement("li");
+//   var li2 = document.("#main").createElement("li");
+//   var li3 = document.("#main").createElement("li");
+//   var li4 = document.("#main").createElement("li");
+// }
 
 // Psuedo Steps
 //Create Nav Element that has High Scores Link and Timer Showing
