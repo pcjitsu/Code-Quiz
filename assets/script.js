@@ -1,3 +1,19 @@
+// Grabbering Timer from Nav and Setting Interval
+var timeEl = document.querySelector(".time");
+var secondsLeft = 100;
+
+var mainButton = document.querySelector(".btn-main");
+
+setTime = function () {
+  // Sets interval in variable
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft;
+  });
+};
+
+mainButton.addEventListener("click", setTime());
+
 // Psuedo Steps
 //Create Nav Element that has High Scores Link and Timer Showing
 //H1 Element that has Information about Game and Button Underneath
