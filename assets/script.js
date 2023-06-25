@@ -1,25 +1,36 @@
 // Question Bank
-Q1 = {
-  Question: "test",
-  Wrong1: "Wrong1",
-  Wrong2: "Wrong2",
-  Wrong3: "Wrong3",
-  Right: "Right!",
-};
-Q2 = {
-  Question: "test",
-  Wrong1: "Wrong1",
-  Wrong2: "Wrong2",
-  Wrong3: "Wrong3",
-  Right: "Right!",
-};
-Q3 = {
-  Question: "test",
-  Wrong1: "Wrong1",
-  Wrong2: "Wrong2",
-  Wrong3: "Wrong3",
-  Right: "Right!",
-};
+var questions = [
+  {
+    numberQuestion: 1,
+    question: "What does a loop do?",
+    answer: "iterates over something",
+    otherResponse: ["Hula Loop", "Da Loop", "Some Other Thing"],
+  },
+  {
+    numberQuestion: 2,
+    question: "What is an array",
+    answer: "list of values",
+    otherResponse: ["type of ray gun", "one value", "Some Other Thing"],
+  },
+  {
+    numberQuestion: 3,
+    question: "what is a Web API?",
+    answer: "APIs created by the browser",
+    otherResponse: ["Spider Mans Acronym", "Charlottes nickname", "Some Other Thing"],
+  },
+  {
+    numberQuestion: 4,
+    question: "keys are matched to what?",
+    answer: "value",
+    otherResponse: ["lock", "scroll", "Some Other Thing"],
+  },
+  {
+    numberQuestion: 5,
+    question: "What does console log do?",
+    answer: "logs values to the console in the browser",
+    otherResponse: ["multiplies", "Divides", "Some Other Thing"],
+  },
+];
 
 // Grabbering Timer from Nav and Setting Seconds Left
 var timeEl = document.querySelector(".time");
@@ -27,11 +38,10 @@ var mainButton = document.querySelector(".btn-main");
 
 // Adding event listener to button
 mainButton.addEventListener("click", startCountdown);
-// mainButton.addEventListener("click", createQuestions(Q1));
 
 function startCountdown() {
   mainButton.disabled = true;
-  var secondsleft = 30;
+  var secondsleft = 20;
   countdownInterval = setInterval(() => {
     secondsleft--;
     timeEl.textContent = secondsleft;
@@ -42,13 +52,6 @@ function startCountdown() {
     }
   }, 1000);
 }
-
-// function createQuestions(questionObject) {
-//   var li1 = document.("#main").createElement("li");
-//   var li2 = document.("#main").createElement("li");
-//   var li3 = document.("#main").createElement("li");
-//   var li4 = document.("#main").createElement("li");
-// }
 
 // Psuedo Steps
 //Create Nav Element that has High Scores Link and Timer Showing

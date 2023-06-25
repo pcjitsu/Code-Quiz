@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.Main-Content {
+.main-Content {
   display: flex;
   flex-direction: column;
   justify-content: center;
