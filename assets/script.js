@@ -1,3 +1,26 @@
+// Question Bank
+Q1 = {
+  Question: "test",
+  Wrong1: "Wrong1",
+  Wrong2: "Wrong2",
+  Wrong3: "Wrong3",
+  Right: "Right!",
+};
+Q2 = {
+  Question: "test",
+  Wrong1: "Wrong1",
+  Wrong2: "Wrong2",
+  Wrong3: "Wrong3",
+  Right: "Right!",
+};
+Q3 = {
+  Question: "test",
+  Wrong1: "Wrong1",
+  Wrong2: "Wrong2",
+  Wrong3: "Wrong3",
+  Right: "Right!",
+};
+
 // Grabbering Timer from Nav and Setting Interval
 var timeEl = document.querySelector(".time");
 var secondsLeft = 100;
