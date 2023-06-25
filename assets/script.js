@@ -21,21 +21,26 @@ Q3 = {
   Right: "Right!",
 };
 
-// Grabbering Timer from Nav and Setting Interval
+// Grabbering Timer from Nav and Setting Seconds Left
 var timeEl = document.querySelector(".time");
-var secondsLeft = 100;
-
 var mainButton = document.querySelector(".btn-main");
 
-setTime = function () {
-  // Sets interval in variable
-  var timerInterval = setInterval(function () {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft;
-  });
-};
+// Adding event listener to button
+mainButton.addEventListener("click", startCountdown);
 
-mainButton.addEventListener("click", setTime());
+function startCountdown() {
+  mainButton.disabled = true;
+  var secondsleft = 30;
+  countdownInterval = setInterval(() => {
+    secondsleft--;
+    timeEl.textContent = secondsleft;
+
+    if (secondsleft <= 0) {
+      clearInterval(countdownInterval);
+      mainButton.disabled = false;
+    }
+  }, 1000);
+}
 
 // Psuedo Steps
 //Create Nav Element that has High Scores Link and Timer Showing
