@@ -35,34 +35,34 @@ var questions = [
 // Grabbering Timer from Nav and Setting Seconds Left
 var timeEl = document.querySelector(".time");
 var mainButton = document.querySelector(".btn-main");
+var questionIndex = 0;
+var questionEl = document.querySelector(".question");
 
 // Adding event listener to button
 mainButton.addEventListener("click", startQuiz);
+//Display Question from array and object
+var displayQuestion = function () {
+  questionEl.textContent = questions[questionIndex].quesgtion;
+};
+
+// Start the timer in the upper right hand corner
+function startTimer() {
+  mainButton.disabled = true;
+  var secondsleft = 20;
+  countdownInterval = setInterval(() => {
+    secondsleft--;
+    timeEl.textContent = secondsleft;
+
+    if (secondsleft <= 0) {
+      clearInterval(countdownInterval);
+      mainButton.disabled = false;
+    }
+  }, 1000);
+}
 
 function startQuiz() {
-  //Start the timer in the upper right hand corner
-  function startTimer() {
-    mainButton.disabled = true;
-    var secondsleft = 20;
-    countdownInterval = setInterval(() => {
-      secondsleft--;
-      timeEl.textContent = secondsleft;
-
-      if (secondsleft <= 0) {
-        clearInterval(countdownInterval);
-        mainButton.disabled = false;
-      }
-    }, 1000);
-  }
-
-  i = 0;
-  function generateQuestions() {
-    questionBoxQuestion = document.querySelector(".question");
-    questionBoxQuestion.textContent = questions.find;
-  }
-
   startTimer();
-  generateQuestions();
+  displayQuestion();
 }
 
 // Psuedo Steps
