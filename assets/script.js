@@ -40,11 +40,45 @@ var questionEl = document.querySelector(".question");
 
 // Adding event listener to button
 mainButton.addEventListener("click", startQuiz);
-//Display Question from array and object
-var displayQuestion = function () {
-  questionEl.textContent = questions[questionIndex].quesgtion;
-};
+//Display Question from array and object > taking questioninex as arg
+function displayQuestion(index) {
+  var question = questions[index];
+  var questionDiv = document.querySelector(".question");
 
+  //Clearing questionDiv o content/ creting a span and adding it to Div
+  questionDiv.innerHTML = "";
+  var span = document.createElement("span");
+  span.innerHTML = question.question;
+  questionDiv.appendChild(span);
+  var ul = document.createElement("ul");
+  //Concat taking all keys:value paids from question 1 object into single array
+  var allChoices = [question.answer].concat(question.otherResponse);
+
+  // Randomize the order of the choices
+  allChoices = allChoices.sort(() => Math.random() - 0.5);
+  //creating a loop that creates a li and button from each index in all choices
+  allChoices.forEach(function (choice) {
+    var li = document.createElement("li");
+    // li.innerHTML = choice;
+    var button = document.createElement("button");
+    // Set the button's text
+    button.innerHTML = choice;
+    button.onclick = function () {
+      if (choice === question.answer) {
+        alert("You selected the correct answer: " + choice);
+      } else {
+        alert("You selected the wrong answer. The correct answer is: " + question.answer);
+      }
+    };
+    //appending button element as child of li
+    li.appendChild(button);
+    //appending li element as child of ul
+    ul.appendChild(li);
+  });
+  //when loop complete append the whole ul to div
+  questionDiv.appendChild(ul);
+  questionIndex++;
+}
 // Start the timer in the upper right hand corner
 function startTimer() {
   mainButton.disabled = true;
@@ -62,7 +96,7 @@ function startTimer() {
 
 function startQuiz() {
   startTimer();
-  displayQuestion();
+  displayQuestion(questionIndex);
 }
 
 // Psuedo Steps
