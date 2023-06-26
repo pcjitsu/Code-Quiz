@@ -12,3 +12,8 @@
 .btn-main {
   width: 5%;
 }
+.options {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}

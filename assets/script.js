@@ -37,20 +37,32 @@ var timeEl = document.querySelector(".time");
 var mainButton = document.querySelector(".btn-main");
 
 // Adding event listener to button
-mainButton.addEventListener("click", startCountdown);
+mainButton.addEventListener("click", startQuiz);
 
-function startCountdown() {
-  mainButton.disabled = true;
-  var secondsleft = 20;
-  countdownInterval = setInterval(() => {
-    secondsleft--;
-    timeEl.textContent = secondsleft;
+function startQuiz() {
+  //Start the timer in the upper right hand corner
+  function startTimer() {
+    mainButton.disabled = true;
+    var secondsleft = 20;
+    countdownInterval = setInterval(() => {
+      secondsleft--;
+      timeEl.textContent = secondsleft;
 
-    if (secondsleft <= 0) {
-      clearInterval(countdownInterval);
-      mainButton.disabled = false;
-    }
-  }, 1000);
+      if (secondsleft <= 0) {
+        clearInterval(countdownInterval);
+        mainButton.disabled = false;
+      }
+    }, 1000);
+  }
+
+  i = 0;
+  function generateQuestions() {
+    questionBoxQuestion = document.querySelector(".question");
+    questionBoxQuestion.textContent = questions.find;
+  }
+
+  startTimer();
+  generateQuestions();
 }
 
 // Psuedo Steps
