@@ -37,6 +37,12 @@ var timeEl = document.querySelector(".time");
 var mainButton = document.querySelector(".btn-main");
 var questionIndex = 0;
 var questionEl = document.querySelector(".question");
+var answerEl = document.querySelector(".answer");
+
+function saveGame() {
+  clearInterval(countdownInterval);
+  var initials = prompt("What are your intials");
+}
 
 // Adding event listener to button
 mainButton.addEventListener("click", startQuiz);
@@ -63,14 +69,19 @@ function displayQuestion(index) {
     var button = document.createElement("button");
     // Set the button's text
     button.innerHTML = choice;
+    answerEl.textContent = "";
     button.onclick = function () {
       if (choice === question.answer) {
-        alert("You selected the correct answer: " + choice);
+        answerEl.textContent = "RIGHT!";
+        questionIndex++;
+        displayQuestion(questionIndex);
       } else {
-        alert("You selected the wrong answer. The correct answer is: " + question.answer);
+        answerEl.textContent = "Wrong!";
+        secondsleft = secondsleft - 10;
       }
-      questionIndex++;
-      displayQuestion(questionIndex);
+      if (secondsleft <= 0 || questionIndex === questions.length - 1) {
+        saveGame();
+      }
     };
     //appending button element as child of li
     li.appendChild(button);
@@ -81,7 +92,7 @@ function displayQuestion(index) {
   questionDiv.appendChild(ul);
 }
 // Start the timer in the upper right hand corner
-var secondsleft = 20;
+var secondsleft = 40;
 function startTimer() {
   mainButton.disabled = true;
   countdownInterval = setInterval(() => {
