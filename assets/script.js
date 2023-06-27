@@ -69,6 +69,8 @@ function displayQuestion(index) {
       } else {
         alert("You selected the wrong answer. The correct answer is: " + question.answer);
       }
+      questionIndex++;
+      displayQuestion(questionIndex);
     };
     //appending button element as child of li
     li.appendChild(button);
@@ -77,12 +79,11 @@ function displayQuestion(index) {
   });
   //when loop complete append the whole ul to div
   questionDiv.appendChild(ul);
-  questionIndex++;
 }
 // Start the timer in the upper right hand corner
+var secondsleft = 20;
 function startTimer() {
   mainButton.disabled = true;
-  var secondsleft = 20;
   countdownInterval = setInterval(() => {
     secondsleft--;
     timeEl.textContent = secondsleft;
@@ -98,6 +99,10 @@ function startQuiz() {
   startTimer();
   displayQuestion(questionIndex);
 }
+
+//if seconds left is more then 0 || no questions left => clear interval
+//Track wrong inputs
+//set score via seconds left - wrong answers
 
 // Psuedo Steps
 //Create Nav Element that has High Scores Link and Timer Showing
