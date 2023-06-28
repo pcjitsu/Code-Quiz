@@ -35,5 +35,5 @@ MIT License
 
 Click button and run through test
 
-Go to website and compare to mock up; please look at screenshot
+Go to website and compare to mock up; please look at screenshot: Same Functionality; Just UGLIER!
 ![WebAppScreenshot](assets/Images/04-web-apis-homework-demo.gif?raw=true)

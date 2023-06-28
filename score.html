@@ -10,6 +10,7 @@
     <h2 class="highScore"></h2>
   </body>
   <script>
+    //Creating relevent vars to change content to stored score
     var highscoresEl = document.querySelector(".highScore");
     var storedScores = JSON.parse(localStorage.getItem("highscores"));
     highscoresEl.textContent = storedScores.highScore + "   " + storedScores.user;
