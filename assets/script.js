@@ -45,12 +45,11 @@ function saveGame() {
   var currentHighScore = secondsleft;
   //Caputuring outputs for game
   var highScores = {
-    HighSchore: currentHighScore,
+    highScore: currentHighScore,
     user: initials,
   };
 
   localStorage.setItem("highscores", JSON.stringify(highScores));
-  var storedScores = JSON.parse(localStorage.getItem("highscores"));
 }
 
 // Adding event listener to button

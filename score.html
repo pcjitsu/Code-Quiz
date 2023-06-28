@@ -11,7 +11,8 @@
   </body>
   <script>
     var highscoresEl = document.querySelector(".highScore");
-    highscoresEl.textContent = storedScores.HighSchore + "   " + storedScores.user;
+    var storedScores = JSON.parse(localStorage.getItem("highscores"));
+    highscoresEl.textContent = storedScores.highScore + "   " + storedScores.user;
     console.log(storedScores);
   </script>
 </html>
