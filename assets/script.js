@@ -39,6 +39,7 @@ var questionIndex = 0;
 var questionEl = document.querySelector(".question");
 var answerEl = document.querySelector(".answer");
 
+//Stops Timer, gets intitals and creates variable with seconds left which equals high score
 function saveGame() {
   clearInterval(countdownInterval);
   var initials = prompt("What are your intials");
@@ -50,6 +51,11 @@ function saveGame() {
 mainButton.addEventListener("click", startQuiz);
 //Display Question from array and object > taking questioninex as arg
 function displayQuestion(index) {
+  //Checks to see if we continue with questions, starts save game function and exits out of function
+  if (secondsleft <= 0 || questionIndex === questions.length) {
+    saveGame();
+    return;
+  }
   var question = questions[index];
   var questionDiv = document.querySelector(".question");
 
@@ -81,9 +87,10 @@ function displayQuestion(index) {
         answerEl.textContent = "Wrong!";
         secondsleft = secondsleft - 5;
       }
-      if (secondsleft <= 0 || questionIndex === questions.length - 1) {
-        saveGame();
-      }
+
+      // if (secondsleft <= 0 || questionIndex === questions.length) {
+      //   saveGame();
+      // }
     };
     //appending button element as child of li
     li.appendChild(button);
