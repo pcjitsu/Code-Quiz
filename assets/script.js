@@ -38,13 +38,21 @@ var mainButton = document.querySelector(".btn-main");
 var questionIndex = 0;
 var questionEl = document.querySelector(".question");
 var answerEl = document.querySelector(".answer");
-
+var highscoresEl = document.querySelector(".highScore");
 //Stops Timer, gets intitals and creates variable with seconds left which equals high score
 function saveGame() {
   clearInterval(countdownInterval);
   var initials = prompt("What are your intials");
   var currentHighScore = secondsleft;
-  console.log(currentHighScore);
+  //Caputuring outputs for game
+  var highScores = {
+    HighSchore: currentHighScore,
+    user: initials,
+  };
+  localStorage.setItem("highscores", JSON.stringify(highScores));
+  var storedScores = JSON.parse(localStorage.getItem("highscores"));
+  highscoresEl.textContent = storedScores.HighSchore + "   " + storedScores.user;
+  console.log(storedScores);
 }
 
 // Adding event listener to button
@@ -79,6 +87,7 @@ function displayQuestion(index) {
     button.innerHTML = choice;
     answerEl.textContent = "";
     button.onclick = function () {
+      //Check to see if quesiton is right or wrong basd on key
       if (choice === question.answer) {
         answerEl.textContent = "RIGHT!";
         questionIndex++;
@@ -87,10 +96,6 @@ function displayQuestion(index) {
         answerEl.textContent = "Wrong!";
         secondsleft = secondsleft - 5;
       }
-
-      // if (secondsleft <= 0 || questionIndex === questions.length) {
-      //   saveGame();
-      // }
     };
     //appending button element as child of li
     li.appendChild(button);
@@ -107,7 +112,7 @@ function startTimer() {
   countdownInterval = setInterval(() => {
     secondsleft--;
     timeEl.textContent = secondsleft;
-
+    //Stops Timer
     if (secondsleft <= 0) {
       clearInterval(countdownInterval);
       mainButton.disabled = false;
