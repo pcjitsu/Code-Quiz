@@ -42,6 +42,8 @@ var answerEl = document.querySelector(".answer");
 function saveGame() {
   clearInterval(countdownInterval);
   var initials = prompt("What are your intials");
+  var currentHighScore = secondsleft;
+  console.log(currentHighScore);
 }
 
 // Adding event listener to button
@@ -77,7 +79,7 @@ function displayQuestion(index) {
         displayQuestion(questionIndex);
       } else {
         answerEl.textContent = "Wrong!";
-        secondsleft = secondsleft - 10;
+        secondsleft = secondsleft - 5;
       }
       if (secondsleft <= 0 || questionIndex === questions.length - 1) {
         saveGame();
@@ -92,7 +94,7 @@ function displayQuestion(index) {
   questionDiv.appendChild(ul);
 }
 // Start the timer in the upper right hand corner
-var secondsleft = 40;
+var secondsleft = 100;
 function startTimer() {
   mainButton.disabled = true;
   countdownInterval = setInterval(() => {
