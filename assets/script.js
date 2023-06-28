@@ -38,7 +38,6 @@ var mainButton = document.querySelector(".btn-main");
 var questionIndex = 0;
 var questionEl = document.querySelector(".question");
 var answerEl = document.querySelector(".answer");
-var highscoresEl = document.querySelector(".highScore");
 //Stops Timer, gets intitals and creates variable with seconds left which equals high score
 function saveGame() {
   clearInterval(countdownInterval);
@@ -49,10 +48,9 @@ function saveGame() {
     HighSchore: currentHighScore,
     user: initials,
   };
+
   localStorage.setItem("highscores", JSON.stringify(highScores));
   var storedScores = JSON.parse(localStorage.getItem("highscores"));
-  highscoresEl.textContent = storedScores.HighSchore + "   " + storedScores.user;
-  console.log(storedScores);
 }
 
 // Adding event listener to button

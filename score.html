@@ -9,5 +9,9 @@
     <h1>HIGH SCORE</h1>
     <h2 class="highScore"></h2>
   </body>
-  <script src="assets/script.js"></script>
+  <script>
+    var highscoresEl = document.querySelector(".highScore");
+    highscoresEl.textContent = storedScores.HighSchore + "   " + storedScores.user;
+    console.log(storedScores);
+  </script>
 </html>
