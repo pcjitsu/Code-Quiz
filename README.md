@@ -18,6 +18,7 @@ If no characters are selected during prompt, please refresh page.
 
 How to use this app is to go to website, compare to acceptance criteria, click Start button, and try to get your highest score!
 Go to WebPage found here
+https://pcjitsu.github.io/Code-Quiz/
 
 ## Credits
 
